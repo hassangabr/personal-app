@@ -1,0 +1,19 @@
+$main-color:#7228FF;
+.button {
+    background-color:$main-color;
+    color:#fff;
+    padding:4px 30px;
+    min-width:170px;
+    border-radius:15px;
+    border:2px solid $main-color;
+    transition: all 0.2s ease-in-out;
+    font-size:14px;
+    font-weight:bold;
+    display: block;
+    margin:auto;
+    &:hover {
+        color:$main-color;
+        background-color:#fff;
+
+    }
+}

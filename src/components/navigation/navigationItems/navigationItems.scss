@@ -1,0 +1,45 @@
+$main-color:#7228FF;
+nav {
+    position:fixed;
+    top:0;
+    width:200px;
+    background-color:#fff;
+    min-height:100vh;
+    z-index:9999;
+    transition: all 0.25s ease-out;
+    @media (max-width:767px) {
+        &.opened {
+            left:0;
+        }
+        &.closed {
+            left:-200px;
+        }
+    }
+    span {
+        &.option {
+            width:40px;
+            height:40px;
+            border-radius:0 5px 5px 0;
+            background-color:#fff;
+            display:none;
+            position: absolute;
+            top:100px;
+            right:-40px;
+            text-align:center;
+            line-height:42px;
+            font-size:19px;
+            cursor: pointer;
+            transition: all 0.2s ease-out;
+            color: $main-color;
+            box-shadow: 1px 1px 4px rgba(0,0,0, 0.2);
+            &:hover {
+                color:#fff;
+                background-color: $main-color;
+            }
+            @media (max-width:767px) {
+                display: block;
+            }
+        }
+    }
+    
+}
