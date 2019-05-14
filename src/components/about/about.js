@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as actions from '../../store/actions/indexActions';
 import { connect } from 'react-redux';
-import Aux from '../../hoc/Aux'
+import Aux from '../../hoc/AuxC'
 import { Col } from 'reactstrap';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
