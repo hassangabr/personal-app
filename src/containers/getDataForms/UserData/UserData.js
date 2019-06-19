@@ -22,7 +22,7 @@ class UserData extends Component {
                 validation: {
                     required: true,
                 },
-                valid: false,
+                valid: true,
                 touched: false,
                 classes: 'col-lg-12'
             },
@@ -91,7 +91,8 @@ class UserData extends Component {
                 value: '',
                 validation: {
                     required: true,
-                    minLength: 11
+                    minLength: 11,
+                    isNumeric: true
                 },
                 valid: false,
                 touched: false,
@@ -127,7 +128,8 @@ class UserData extends Component {
                 classes: 'col-12'
             },
         },
-        uploadImage: ''
+        uploadImage: '',
+        formIsValid: false
     }
 
     componentDidMount () {
@@ -144,7 +146,13 @@ class UserData extends Component {
                 touched: true
             })
         });
-        this.setState({inputs: updateInputs});
+        let formIsValid = true;
+        for (let input in updateInputs) {
+            formIsValid = updateInputs[input].valid && formIsValid;
+        }
+        console.log(formIsValid);
+        console.log(updateInputs);
+        this.setState({inputs: updateInputs, formIsValid: formIsValid});
     }
 
     addProfileImage = (event) => {
@@ -219,6 +227,13 @@ class UserData extends Component {
             redirect = <Redirect to = {this.props.userRedirectPath} />
         }
 
+        let button = <SpanButton/>;
+
+        if (this.state.formIsValid) {
+            button = <Button classes="next">Next</Button>;
+        }
+
+
         return (
             <section className="data text-center">
                 {redirect}
@@ -228,8 +243,7 @@ class UserData extends Component {
                         <h2>Start creating your profile</h2>
                         <Row>
                             {form}
-                            <SpanButton/>
-                            <Button classes="next">Next</Button>
+                            {button}
                         </Row>
                     </form>
                 </Container>
