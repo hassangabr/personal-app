@@ -6,6 +6,7 @@ import { Container, Row } from 'reactstrap';
 import Input from '../../../components/UI/Input/Input';
 import Button from '../../../components/UI/Button/Button';
 import Spinner from '../../../components/UI/Spinner/Spinner';
+import SpanButton from '../../../components/UI/spanButton/spanButton';
 import { updateObject, checkValidity } from '../../../shared/Utility';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -41,14 +42,16 @@ class SkillsData extends Component {
                 validation: {
                     required: true,
                     isNumeric: true,
-                    maxLength: 3
+                    maxLength: 3,
+                    isNumeric: true
                 },
                 valid: false,
                 touched: false,
                 classes: 'col-lg-6'
             },
         },
-        i: 1
+        i: 1,
+        formIsValid: false
     }
 
     componentDidMount () {
@@ -65,7 +68,12 @@ class SkillsData extends Component {
                 touched: true
             })
         });
-        this.setState({inputs: updateInputs});
+
+        let formIsValid = true;
+        for (let input in updateInputs) {
+            formIsValid = updateInputs[input].valid && formIsValid;
+        }
+        this.setState({inputs: updateInputs, formIsValid: formIsValid});
     }
 
     addFormHandler = () => {
@@ -145,6 +153,12 @@ class SkillsData extends Component {
             );
         }
 
+        let button = <SpanButton/>;
+
+        if (this.state.formIsValid) {
+            button = <Button classes="next">Next</Button>;
+        }
+
         return (
             <section className="skill-data text-center">
                 {redirect}
@@ -155,7 +169,7 @@ class SkillsData extends Component {
                         {errorMessage}
                         <Row>
                             {form}
-                            <Button classes="next">Next</Button>
+                            {button}
                         </Row>
                     </form>
                     <Button classes="add" clicked= {this.addFormHandler}>
