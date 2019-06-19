@@ -82,7 +82,6 @@ class PortfolioData extends Component {
         let formIsValid = true;
         for (let input in updateInputs) {
             formIsValid = updateInputs[input].valid && formIsValid;
-            console.log(updateInputs[input]);
         }
         this.setState({inputs: updateInputs, formIsValid:formIsValid});
     }
@@ -131,7 +130,6 @@ class PortfolioData extends Component {
             });
             
             this.setState({inputs:updateImage})
-            console.log(this.state);
         };
         if ( event.target.files[0] ) {
             reader.readAsDataURL(file);

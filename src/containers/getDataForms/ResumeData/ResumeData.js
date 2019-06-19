@@ -6,6 +6,7 @@ import { Container, Row } from 'reactstrap';
 import Button from '../../../components/UI/Button/Button';
 import Input from '../../../components/UI/Input/Input';
 import Spinner from '../../../components/UI/Spinner/Spinner';
+import SpanButton from '../../../components/UI/spanButton/spanButton';
 import { updateObject, checkValidity } from '../../../shared/Utility';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -68,7 +69,8 @@ class ResumeData extends Component {
                 value: '',
                 validation: {
                     required: true,
-                    minLength:4
+                    minLength:4,
+                    isNumeric: true
                 },
                 valid: false,
                 touched: false,
@@ -83,7 +85,8 @@ class ResumeData extends Component {
                 value: '',
                 validation: {
                     required: true,
-                    minLength:4
+                    minLength:4,
+                    isNumeric: true
                 },
                 valid: false,
                 touched: false,
@@ -104,7 +107,8 @@ class ResumeData extends Component {
                 classes: 'col-lg-12'
             }
         },
-        i: 1
+        i: 1,
+        formIsValid: false
     }
 
     componentDidMount () {
@@ -121,7 +125,11 @@ class ResumeData extends Component {
                 touched: true
             })
         });
-        this.setState({inputs:updateInputs})
+        let formIsValid = true;
+        for (let input in updateInputs) {
+            formIsValid = updateInputs[input].valid && formIsValid;
+        }
+        this.setState({inputs:updateInputs, formIsValid:formIsValid})
     }
 
     addFormHandler = () => {
@@ -167,7 +175,7 @@ class ResumeData extends Component {
                 touched:false
             }
         });
-        this.setState({inputs:addInput, i: incI.i})
+        this.setState({inputs:addInput, i: incI.i, formIsValid: false})
     }
 
     submitHandler = (event) => {
@@ -225,6 +233,12 @@ class ResumeData extends Component {
             );
         }
 
+        let button = <SpanButton/>;
+
+        if (this.state.formIsValid) {
+            button = <Button classes="next">Next</Button>;
+        }
+
         return (
             <section className="resume-data text-center">
                 {redirect}
@@ -235,7 +249,7 @@ class ResumeData extends Component {
                         {errorMessage}
                         <Row>
                             {form}
-                            <Button classes="next">Next</Button>
+                            {button}
                         </Row>
                     </form>
                     <Button classes="add" clicked= {this.addFormHandler}>
