@@ -150,8 +150,6 @@ class UserData extends Component {
         for (let input in updateInputs) {
             formIsValid = updateInputs[input].valid && formIsValid;
         }
-        console.log(formIsValid);
-        console.log(updateInputs);
         this.setState({inputs: updateInputs, formIsValid: formIsValid});
     }
 
