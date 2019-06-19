@@ -41,7 +41,6 @@ class SkillsData extends Component {
                 value: '',
                 validation: {
                     required: true,
-                    isNumeric: true,
                     maxLength: 3,
                     isNumeric: true
                 },
@@ -95,7 +94,7 @@ class SkillsData extends Component {
                 valid: false
             },
         });
-        this.setState({inputs:addInput, i:incI.i});
+        this.setState({inputs:addInput, i:incI.i, formIsValid: false});
     }
 
     submitHandler = (event) => {

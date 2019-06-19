@@ -9,6 +9,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Input from '../../../components/UI/Input/Input';
 import Button from '../../../components/UI/Button/Button';
 import Spinner from '../../../components/UI/Spinner/Spinner';
+import SpanButton from '../../../components/UI/spanButton/spanButton';
 import * as actions from '../../../store/actions/indexActions';
 import '../formsData.scss';
 
@@ -26,7 +27,7 @@ class PortfolioData extends Component {
                 validation: {
                     required: true,
                 },
-                valid: false,
+                valid: true,
                 touched: false,
                 classes: 'col-lg-12',
                 uploadImage: ''
@@ -61,6 +62,7 @@ class PortfolioData extends Component {
             }
         },
         i: 1,
+        formIsValid: false
     }
 
     componentDidMount () {
@@ -77,7 +79,12 @@ class PortfolioData extends Component {
                 valid: checkValidity(event.target.value, this.state.inputs[inputName].validation)
             })
         });
-        this.setState({inputs: updateInputs});
+        let formIsValid = true;
+        for (let input in updateInputs) {
+            formIsValid = updateInputs[input].valid && formIsValid;
+            console.log(updateInputs[input]);
+        }
+        this.setState({inputs: updateInputs, formIsValid:formIsValid});
     }
 
     addFormHandler = () => {
@@ -89,7 +96,7 @@ class PortfolioData extends Component {
             ["thumbnail_" + i]: {
                 ...this.state.inputs["thumbnail_0"],
                 value: '',
-                valid: false,
+                valid: true,
                 touched: false,
                 uploadImage: ''
             },
@@ -106,7 +113,7 @@ class PortfolioData extends Component {
                 touched: false
             }
         });
-        this.setState({inputs:addInput, i: incI.i})
+        this.setState({inputs:addInput, i: incI.i, formIsValid:false})
     }
 
     addThumbnailImage = (event, inputName) => {
@@ -192,6 +199,12 @@ class PortfolioData extends Component {
             );
         }
 
+        let button = <SpanButton/>;
+
+        if (this.state.formIsValid) {
+            button = <Button classes="next">Next</Button>;
+        }
+
         return (
             <section className="port-data text-center">
                 {redirect}
@@ -202,7 +215,7 @@ class PortfolioData extends Component {
                         {errorMessage}
                         <Row>
                             {form}
-                            <Button classes="next">Next</Button>
+                            {button}
                         </Row>
                     </form>
                     <Button classes="add" clicked= {this.addFormHandler}>
