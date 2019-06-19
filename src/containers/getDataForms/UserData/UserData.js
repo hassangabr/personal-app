@@ -5,6 +5,7 @@ import { updateObject, checkValidity } from '../../../shared/Utility';
 import { Container, Row } from 'reactstrap';
 import Input from '../../../components/UI/Input/Input';
 import Button from '../../../components/UI/Button/Button';
+import SpanButton from '../../../components/UI/spanButton/spanButton';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import * as actions from '../../../store/actions/indexActions';
 import '../formsData.scss';
@@ -227,6 +228,7 @@ class UserData extends Component {
                         <h2>Start creating your profile</h2>
                         <Row>
                             {form}
+                            <SpanButton/>
                             <Button classes="next">Next</Button>
                         </Row>
                     </form>
