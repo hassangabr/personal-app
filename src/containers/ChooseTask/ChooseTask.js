@@ -27,7 +27,7 @@ const chooseTask = () => {
                                         <NavigationItem link = "/resumeData" exact = {true}>Start adding your career history</NavigationItem>
                                         <NavigationItem link = "/portfolioData" exact = {true}>Start adding your works</NavigationItem>
                                         <NavigationItem link = "/home" exact = {true}>
-                                            <Button classes="tasksButton">Skip tasks</Button>
+                                            <Button classes="tasksButton">Skip tasks to your profile</Button>
                                         </NavigationItem>
                                     </ul>
                                 </nav>
