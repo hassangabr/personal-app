@@ -70,7 +70,7 @@ class Auth extends Component {
             }
             if (!this.state.isLogin) {
                 this.setState(prevState => {
-                    return {redirect: prevState.redirect= '/data'}
+                    return {redirect: prevState.redirect= '/chooseTask'}
                 }, () => this.props.onAuthRedirect(this.state.redirect))
             }
         });
@@ -114,7 +114,7 @@ class Auth extends Component {
         }
 
         if ( this.props.isAuthenticated && !this.state.isLogin ) {
-            redirect = <Redirect to = '/data'/>
+            redirect = <Redirect to = '/chooseTask'/>
         }
 
         let errorMessage = null;
