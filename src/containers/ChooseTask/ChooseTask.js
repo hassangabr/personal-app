@@ -1,6 +1,7 @@
 import React from 'react';
 import NavigationItem from '../../components/navigation/navigationItem/navigationItem';
 import chooseTaskImage from '../../assets/choose-task.jpeg';
+import Button from '../../components/UI/Button/Button';
 import "./ChooseTask.scss";
 
 const chooseTask = () => {
@@ -25,6 +26,9 @@ const chooseTask = () => {
                                         <NavigationItem link = "/skillsData" exact = {true}>Start adding your Skills</NavigationItem>
                                         <NavigationItem link = "/resumeData" exact = {true}>Start adding your career history</NavigationItem>
                                         <NavigationItem link = "/portfolioData" exact = {true}>Start adding your works</NavigationItem>
+                                        <NavigationItem link = "/home" exact = {true}>
+                                            <Button classes="tasksButton">Skip tasks</Button>
+                                        </NavigationItem>
                                     </ul>
                                 </nav>
                             </div>

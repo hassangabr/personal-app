@@ -1,7 +1,7 @@
 section.chooseTask {
     padding:100px 0;
     .sp {padding-left:0 !important; padding-right:0;}
-    .content {background:#fff }
+    .content {background:#fff; border-radius: 15px; overflow: hidden;}
     .chooseTaskNav {
         position: relative;
         width:100%;
@@ -10,6 +10,24 @@ section.chooseTask {
             padding-left:25px;
             padding-top:12px;
             padding-bottom:12px;
+        }
+        .tasksButton {
+            background-color:rgb(228, 10, 10);
+            border-radius:0;
+            border-color:rgb(228, 10, 10);
+            width:100%;
+            &:hover {
+                color:rgb(228, 10, 10);;
+                background-color:#fff;
+            }
+        }
+        ul li:last-of-type {
+            border-bottom:none;
+            padding-left: 25px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            padding-right:25px;
+            a {padding:0 !important}
         }
     }
     .pic {
