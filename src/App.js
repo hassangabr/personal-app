@@ -11,6 +11,7 @@ import Home from './containers/Home/Home';
 import Resume from './containers/resume/resume';
 import Portfolio from './containers/portfolios/portfolio';
 import Logout from './containers/auth/Logout/Logout';
+import ChooseTask from './containers/ChooseTask/ChooseTask';
 import * as actions from './store/actions/indexActions';
 import './App.scss';
 
@@ -24,6 +25,7 @@ class App extends Component {
       <Switch>
         <Route path = '/' exact component = {Auth}/>
         <Route path = '/logout' exact component = {Logout}/>
+        <Route path = '/chooseTask' exact component = {ChooseTask}/>
       </Switch>
     );
 
