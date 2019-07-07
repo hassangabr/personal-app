@@ -8,6 +8,7 @@ export function* submitPortfolio (action) {
     try {
         const response = yield axios.post('/portfolio.json?auth=' +  action.token, portfolioData);
         yield put(actions.submitPortfolioSuccess(response.data.name));
+        yield localStorage.setItem('requestId', response.data.name);
     } catch (err) {
         yield put(actions.submitPortfolioFail(err.response.data.error));
     }
@@ -43,5 +44,12 @@ export function* fetchPortfolio (action) {
         yield put(actions.fetchPortfolioSuccess(portsArrayArrange));
     } catch(err) {
         yield put(actions.fetchPortfolioFail(err.response.data.error));
+    }
+}
+
+export function* checkPortfolioRequestIdState(action) {
+    const requestId = yield localStorage.getItem("requestId");
+    if (requestId) {
+        yield put(actions.submitPortfolioSuccess(requestId));
     }
 }

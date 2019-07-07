@@ -18,6 +18,7 @@ import './App.scss';
 class App extends Component {
   componentDidMount () {
     this.props.onAutoLogin();
+    this.props.onCheckPortfolioRequestId();
   }
 
   render() {
@@ -63,7 +64,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAutoLogin: () => dispatch(actions.authCheckState())
+    onAutoLogin: () => dispatch(actions.authCheckState()),
+    onCheckPortfolioRequestId: () => dispatch(actions.checkPortfolioRequestIdState())
   }
 }
 

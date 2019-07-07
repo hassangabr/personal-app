@@ -3,7 +3,7 @@ import * as actionTypes from '../actions/actionTypes';
 import { authSaga, authLogout, authCheckTimeOut, authCheckState } from './authSaga';
 import { submitData, fetchUserSaga } from './userSaga';
 import { submitSkillsSaga, fetchSkillsSaga } from './skillsSaga';
-import { submitPortfolio, fetchPortfolio } from './portfolioSaga';
+import { submitPortfolio, fetchPortfolio, checkPortfolioRequestIdState } from './portfolioSaga';
 import { submitResume, fetchResume } from './resumeSaga';
 
 export function* watchAuth () {
@@ -28,6 +28,7 @@ export function* watchSkillsData () {
 export function* watchPortfolioData () {
     yield takeEvery(actionTypes.SUBMIT_PORTFOLIO, submitPortfolio);
     yield takeEvery(actionTypes.FETCH_PORTFOLIO, fetchPortfolio);
+    yield takeEvery(actionTypes.CHECK_PORTFOLIO_REQUESTID_STATE, checkPortfolioRequestIdState);
 }
 
 export function* watchResumeData () {

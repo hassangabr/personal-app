@@ -62,3 +62,9 @@ export const fetchPortfolioFail = (error) => {
         error: error
     }
 }
+
+export const checkPortfolioRequestIdState = () => {
+    return {
+        type: actionTypes.CHECK_PORTFOLIO_REQUESTID_STATE
+    }
+}

@@ -45,7 +45,8 @@ export {
     fetchPortfolio,
     fetchPortfolioStart,
     fetchPortfolioSuccess,
-    fetchPortfolioFail
+    fetchPortfolioFail,
+    checkPortfolioRequestIdState
 } from './portfolioAction';
 
 export {
