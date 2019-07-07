@@ -8,6 +8,7 @@ export function* submitResume (action) {
     try {
         const response = yield axios.post('/resume.json?auth=' + action.token, resumeData);
         yield put(actions.submitResumeSuccess(response.data.name));
+        yield localStorage.setItem('resumeRequestId', response.data.name);
     } catch (err) {
         yield put (actions.submitResumeFail(err.response.data.error));
     }
@@ -47,5 +48,12 @@ export function* fetchResume (action) {
         yield put(actions.fetchResumeSuccess(resumeArrayArrange));
     } catch (err) {
         yield put(actions.fetchResumeFail(err.response.data.error));
+    }
+}
+
+export function* checkResumeRequestIdState(action) {
+    const requestId = yield localStorage.getItem('resumeRequestId');
+    if (requestId) {
+        yield put(actions.fetchResumeRequestIdFromLocalSuccess(requestId))
     }
 }

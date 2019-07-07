@@ -59,5 +59,7 @@ export {
     fetchResume,
     fetchResumeStart,
     fetchResumeSuccess,
-    fetchResumeFail
+    fetchResumeFail,
+    checkResumeRequestIdState,
+    fetchResumeRequestIdFromLocalSuccess
 } from './resumeActions';

@@ -62,3 +62,16 @@ export const fetchResumeFail = (error) => {
         error: error
     }
 }
+
+export const checkResumeRequestIdState  = () => {
+    return {
+        type: actionTypes.CHECK_RESUME_REQUEST_ID_STATE
+    }
+}
+
+export const fetchResumeRequestIdFromLocalSuccess = (requestId) => {
+    return {
+        type: actionTypes.FETCH_RESUME_REQUEST_ID_FROM_LOCAL_SUCCESS,
+        requestId: requestId
+    }
+}

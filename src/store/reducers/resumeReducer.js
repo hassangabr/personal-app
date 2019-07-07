@@ -57,6 +57,12 @@ const fetchResumeFail = (state, action) => {
     });
 }
 
+const fetchRequestIdFromLocalSuccess = (state, action) => {
+    return updateObject(state, {
+        requestId: action.requestId
+    });
+}
+
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.SUBMIT_RESUME_START: return submitResumeStart(state, action);
@@ -66,6 +72,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.FETCH_RESUME_START: return fetchResumeStart(state, action);
         case actionTypes.FETCH_RESUME_SUCCESS: return fetchResumeSuccess(state, action);
         case actionTypes.FETCH_RESUME_FAIL: return fetchResumeFail(state, action);
+        case actionTypes.FETCH_RESUME_REQUEST_ID_FROM_LOCAL_SUCCESS: return fetchRequestIdFromLocalSuccess(state, action);
         default: return state;
     }
 }

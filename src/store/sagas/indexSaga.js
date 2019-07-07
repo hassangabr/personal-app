@@ -4,7 +4,7 @@ import { authSaga, authLogout, authCheckTimeOut, authCheckState } from './authSa
 import { submitData, fetchUserSaga } from './userSaga';
 import { submitSkillsSaga, fetchSkillsSaga } from './skillsSaga';
 import { submitPortfolio, fetchPortfolio, checkPortfolioRequestIdState } from './portfolioSaga';
-import { submitResume, fetchResume } from './resumeSaga';
+import { submitResume, fetchResume, checkResumeRequestIdState } from './resumeSaga';
 
 export function* watchAuth () {
     yield all([
@@ -34,4 +34,5 @@ export function* watchPortfolioData () {
 export function* watchResumeData () {
     yield takeEvery(actionTypes.SUBMIT_RESUME, submitResume);
     yield takeEvery(actionTypes.FETCH_RESUME, fetchResume);
+    yield takeEvery(actionTypes.CHECK_RESUME_REQUEST_ID_STATE, checkResumeRequestIdState);
 }
