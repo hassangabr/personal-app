@@ -6,7 +6,7 @@ const initialState = {
     error: null,
     skillsData: null,
     requestId: null,
-    setSkillsRedirect: '/portfolioData'
+    setSkillsRedirect: '/chooseTask'
 }
 
 const skillsSubmitStart = (state, action) => {

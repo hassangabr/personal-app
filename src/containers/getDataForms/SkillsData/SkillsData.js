@@ -54,7 +54,7 @@ class SkillsData extends Component {
     }
 
     componentDidMount () {
-        if (this.props.setSkillsRedirect !== '/portfolioData') {
+        if (this.props.setSkillsRedirect !== '/chooseTask') {
             this.props.onSetSkillsRedirect();
         }
     }
@@ -195,7 +195,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onSubmitSkills: (token, data) => dispatch(actions.submitSkills(token, data)),
-        onSetSkillsRedirect: () => dispatch(actions.setSkillsRedirect('/portfolioData'))
+        onSetSkillsRedirect: () => dispatch(actions.setSkillsRedirect('/chooseTask'))
     };
 };
 
