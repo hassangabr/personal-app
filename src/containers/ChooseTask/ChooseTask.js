@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import NavigationItem from '../../components/navigation/navigationItem/navigationItem';
 import chooseTaskImage from '../../assets/choose-task.jpeg';
 import Button from '../../components/UI/Button/Button';
 import "./ChooseTask.scss";
 
-const chooseTask = () => {
-    return  (
+class ChooseTask extends Component {
+    render () {
+        return  (
         <section className="chooseTask">
             <div className="container">
                 <div className="justify-content-center align-items-center row">
@@ -25,7 +27,7 @@ const chooseTask = () => {
                                         <NavigationItem link = "/data" exact = {true}>Start adding your personal data</NavigationItem>
                                         <NavigationItem link = "/skillsData" exact = {true}>Start adding your Skills</NavigationItem>
                                         <NavigationItem link = "/resumeData" exact = {true}>Start adding your career history</NavigationItem>
-                                        <NavigationItem link = "/portfolioData" exact = {true}>Start adding your works</NavigationItem>
+                                        {this.props.portRequestId? null: <NavigationItem link = "/portfolioData" exact = {true}>Start adding your works</NavigationItem>}
                                         <NavigationItem link = "/home" exact = {true}>
                                             <Button classes="tasksButton">Skip tasks to your profile</Button>
                                         </NavigationItem>
@@ -38,6 +40,13 @@ const chooseTask = () => {
             </div>
         </section>
     );
+    }
 }
 
-export default chooseTask;
+const mapStateToProps = state => {
+    return {
+        portRequestId: state.port.requestId !== null
+    }
+}
+
+export default connect(mapStateToProps)(ChooseTask);
