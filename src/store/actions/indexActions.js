@@ -21,7 +21,9 @@ export {
     fetchUser,
     fetchUserStart,
     fetchUserSuccess,
-    fetchUserFail
+    fetchUserFail,
+    checkUserRequestIdState,
+    fetchUserRequestIdSuccess
 } from './userAction';
 
 export {

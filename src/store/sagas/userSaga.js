@@ -8,6 +8,7 @@ export function* submitData (action) {
     try {
         const response = yield axios.post('/personal.json?auth=' + action.token, personalData);
         yield put(actions.submitDataSuccess(response.data.name));
+        yield localStorage.setItem('userRequestId', response.data.name);
     } catch (err) {
         yield put(actions.submitDataFail(err.response.data.error))
     }
@@ -27,5 +28,12 @@ export function* fetchUserSaga (action) {
         yield put(actions.fetchUserSuccess(userData));
     } catch (err) {
         yield put(actions.fetchUserFail(err.response.data.error));
+    }
+}
+
+export function* checkUserRequestIdState(action) {
+    const requestId = yield localStorage.getItem('userRequestId');
+    if(requestId !== null) {
+        yield put(actions.fetchUserRequestIdSuccess(requestId));
     }
 }

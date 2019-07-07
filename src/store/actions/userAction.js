@@ -62,3 +62,16 @@ export const fetchUserFail = (error) => {
         error: error
     }
 }
+
+export const checkUserRequestIdState = () => {
+    return {
+        type: actionTypes.CHECK_USER_REQUESR_ID_STATE
+    }
+}
+
+export const fetchUserRequestIdSuccess = (requestId) => {
+    return {
+        type: actionTypes.FETCH_USER_REQUEST_ID_SUCCESS,
+        requestId: requestId
+    }
+}
