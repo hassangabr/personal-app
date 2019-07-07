@@ -24,7 +24,7 @@ class ChooseTask extends Component {
                             <div className="col-lg-6 sp">
                                 <nav className="chooseTaskNav">
                                     <ul className="list-unstyled">
-                                        <NavigationItem link = "/data" exact = {true}>Start adding your personal data</NavigationItem>
+                                        {this.props.userRequestId? null: <NavigationItem link = "/data" exact = {true}>Start adding your personal data</NavigationItem>}
                                         {this.props.skillsRequestId? null: <NavigationItem link = "/skillsData" exact = {true}>Start adding your Skills</NavigationItem>}
                                         {this.props.resumeRequestId? null: <NavigationItem link = "/resumeData" exact = {true}>Start adding your career history</NavigationItem>}
                                         {this.props.portRequestId? null: <NavigationItem link = "/portfolioData" exact = {true}>Start adding your works</NavigationItem>}
@@ -47,7 +47,8 @@ const mapStateToProps = state => {
     return {
         portRequestId: state.port.requestId !== null,
         resumeRequestId: state.resume.requestId !== null,
-        skillsRequestId: state.skills.requestId !== null
+        skillsRequestId: state.skills.requestId !== null,
+        userRequestId: state.user.requestId !== null
     }
 }
 
