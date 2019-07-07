@@ -66,7 +66,7 @@ class PortfolioData extends Component {
     }
 
     componentDidMount () {
-        if (this.props.portRedirect !== '/resumeData') {
+        if (this.props.portRedirect !== '/chooseTask') {
             this.props.onSetPortRedirect();
         }
     }
@@ -240,7 +240,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onSubmitPort: (token, data) => dispatch(actions.submitPortfolio(token, data)),
-        onSetPortRedirect: () => dispatch(actions.setPortfolioRedirect('/resumeData'))
+        onSetPortRedirect: () => dispatch(actions.setPortfolioRedirect('/chooseTask'))
     }
 }
 

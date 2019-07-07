@@ -5,7 +5,7 @@ const initialState = {
     loading:false,
     error: null,
     portfolioData: null,
-    setPortfolioRedirect: '/resumeData',
+    setPortfolioRedirect: '/chooseTask',
     requestId: null
 }
 
