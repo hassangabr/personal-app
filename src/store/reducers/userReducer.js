@@ -4,7 +4,7 @@ import { updateObject } from '../../shared/Utility';
 const initialState = {
     loading: false,
     error: null,
-    userRedirectPath: '/skillsData',
+    userRedirectPath: '/chooseTask',
     data: null,
     requestId: null
 }

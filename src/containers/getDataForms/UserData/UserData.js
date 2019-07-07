@@ -133,7 +133,7 @@ class UserData extends Component {
     }
 
     componentDidMount () {
-        if (this.props.userRedirectPath !== '/skillsData') {
+        if (this.props.userRedirectPath !== '/chooseTask') {
             this.props.onUserRedirect();
         }
     }
@@ -263,7 +263,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onSubmitData: (token, data) => dispatch(actions.submitData(token, data)),
-        onUserRedirect: () => dispatch(actions.setUserRedirectPath('/skillsData'))
+        onUserRedirect: () => dispatch(actions.setUserRedirectPath('/chooseTask'))
     }
 }
 
