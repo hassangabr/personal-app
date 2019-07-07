@@ -8,6 +8,7 @@ export function* submitSkillsSaga (action) {
     try {
         const response = yield axios.post('/skills.json?auth=' + action.token, skillsData);
         yield put(actions.submitSkillsSuccess(response.data.name));
+        yield localStorage.setItem("skillsRequestId", response.data.name);
     } catch (error) {
         yield put(actions.submitSkillsFail(error.response.data.error));
     }
@@ -43,5 +44,12 @@ export function* fetchSkillsSaga (action) {
         yield put(actions.fetchSkillsSuccess(skillsArrayArrenge));
     } catch (err) {
         yield put (actions.fetchSkillsFail(err.response.data.error));
+    }
+}
+
+export function* checkSkillsRequestIdState(action) {
+    const requestId = localStorage.getItem('skillsRequestId');
+    if (requestId !== null) {
+        yield put (actions.fetchSkillsRequestIdFromLocalSuccess(requestId));
     }
 }

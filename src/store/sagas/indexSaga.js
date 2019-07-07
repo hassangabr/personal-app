@@ -2,7 +2,7 @@ import { takeEvery, all } from 'redux-saga/effects';
 import * as actionTypes from '../actions/actionTypes';
 import { authSaga, authLogout, authCheckTimeOut, authCheckState } from './authSaga';
 import { submitData, fetchUserSaga } from './userSaga';
-import { submitSkillsSaga, fetchSkillsSaga } from './skillsSaga';
+import { submitSkillsSaga, fetchSkillsSaga, checkSkillsRequestIdState } from './skillsSaga';
 import { submitPortfolio, fetchPortfolio, checkPortfolioRequestIdState } from './portfolioSaga';
 import { submitResume, fetchResume, checkResumeRequestIdState } from './resumeSaga';
 
@@ -23,6 +23,7 @@ export function* watchPersonalData () {
 export function* watchSkillsData () {
     yield takeEvery(actionTypes.SUBMIT_SKILLS, submitSkillsSaga);
     yield takeEvery(actionTypes.FETCH_SKILLS, fetchSkillsSaga);
+    yield takeEvery(actionTypes.CHECK_SKILLS_REQUEST_ID_STATE, checkSkillsRequestIdState);
 }
 
 export function* watchPortfolioData () {

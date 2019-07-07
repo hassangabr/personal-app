@@ -63,3 +63,16 @@ export const fetchSkillsFail = (error) => {
         error: error
     }
 }
+
+export const checkSkillsRequestIdState = () => {
+    return {
+        type: actionTypes.CHECK_SKILLS_REQUEST_ID_STATE
+    }
+}
+
+export const fetchSkillsRequestIdFromLocalSuccess = (requestId) => {
+    return {
+        type: actionTypes.FETCH_SKILLS_REQUEST_ID_FROM_LOCAL_SUCCESS,
+        requestId: requestId
+    }
+}

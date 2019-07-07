@@ -33,7 +33,9 @@ export {
     fetchSkills,
     fetchSkillsStart,
     fetchSkillsSuccess,
-    fetchSkillsFail
+    fetchSkillsFail,
+    checkSkillsRequestIdState,
+    fetchSkillsRequestIdFromLocalSuccess
 } from './skillsAction';
 
 export {

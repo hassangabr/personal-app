@@ -20,6 +20,7 @@ class App extends Component {
     this.props.onAutoLogin();
     this.props.onCheckPortfolioRequestId();
     this.props.onCheckResumeRequestId();
+    this.props.onCheckSkillsRequestId();
   }
 
   render() {
@@ -68,6 +69,7 @@ const mapDispatchToProps = dispatch => {
     onAutoLogin: () => dispatch(actions.authCheckState()),
     onCheckPortfolioRequestId: () => dispatch(actions.checkPortfolioRequestIdState()),
     onCheckResumeRequestId: () => dispatch(actions.checkResumeRequestIdState()),
+    onCheckSkillsRequestId: () => dispatch(actions.checkSkillsRequestIdState())
   }
 }
 
