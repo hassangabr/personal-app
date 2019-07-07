@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import NavigationItem from '../../components/navigation/navigationItem/navigationItem';
 import chooseTaskImage from '../../assets/choose-task.jpeg';
 import Button from '../../components/UI/Button/Button';
@@ -7,8 +8,15 @@ import "./ChooseTask.scss";
 
 class ChooseTask extends Component {
     render () {
+
+        let redirect = null;
+        if (this.props.userRequestId && this.props.skillsRequestId && this.props.resumeRequestId && this.props.portRequestId) {
+            redirect = <Redirect to = '/home' />
+        }
+
         return  (
         <section className="chooseTask">
+            {redirect}
             <div className="container">
                 <div className="justify-content-center align-items-center row">
                     <div className="col-lg-9 ">
