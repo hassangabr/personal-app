@@ -25,7 +25,7 @@ class ChooseTask extends Component {
                                 <nav className="chooseTaskNav">
                                     <ul className="list-unstyled">
                                         <NavigationItem link = "/data" exact = {true}>Start adding your personal data</NavigationItem>
-                                        <NavigationItem link = "/skillsData" exact = {true}>Start adding your Skills</NavigationItem>
+                                        {this.props.skillsRequestId? null: <NavigationItem link = "/skillsData" exact = {true}>Start adding your Skills</NavigationItem>}
                                         {this.props.resumeRequestId? null: <NavigationItem link = "/resumeData" exact = {true}>Start adding your career history</NavigationItem>}
                                         {this.props.portRequestId? null: <NavigationItem link = "/portfolioData" exact = {true}>Start adding your works</NavigationItem>}
                                         <NavigationItem link = "/home" exact = {true}>
@@ -46,7 +46,8 @@ class ChooseTask extends Component {
 const mapStateToProps = state => {
     return {
         portRequestId: state.port.requestId !== null,
-        resumeRequestId: state.resume.requestId !== null
+        resumeRequestId: state.resume.requestId !== null,
+        skillsRequestId: state.skills.requestId !== null
     }
 }
 
