@@ -50,6 +50,6 @@ export function* fetchPortfolio (action) {
 export function* checkPortfolioRequestIdState(action) {
     const requestId = yield localStorage.getItem("requestId");
     if (requestId) {
-        yield put(actions.submitPortfolioSuccess(requestId));
+        yield put(actions.fetchRequestIdFromLocalSuccess(requestId));
     }
 }

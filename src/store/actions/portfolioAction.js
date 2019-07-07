@@ -68,3 +68,10 @@ export const checkPortfolioRequestIdState = () => {
         type: actionTypes.CHECK_PORTFOLIO_REQUESTID_STATE
     }
 }
+
+export const fetchRequestIdFromLocalSuccess = (requestId) => {
+    return {
+        type: actionTypes.FETCH_PORT_REQUESTID_FROM_LOCAL_SUCCESS,
+        requestId: requestId
+    }
+}

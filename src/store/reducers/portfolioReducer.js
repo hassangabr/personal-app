@@ -57,6 +57,12 @@ const fetchPortfolioFail = (state, action) => {
     });
 }
 
+const fetchRequestIdFromLocalSuccess = (state, action) => {
+    return updateObject(state, {
+        requestId: action.requestId
+    })
+}
+
 const reducer = (state = initialState, action) =>{
     switch(action.type) {
         case actionTypes.SUBMIT_PORTFOLIO_START: return submitPortfolioStart(state, action);
@@ -66,6 +72,7 @@ const reducer = (state = initialState, action) =>{
         case actionTypes.FETCH_PORTFOLIO_START: return fetchPortfolioStart(state, action);
         case actionTypes.FETCH_PORTFOLIO_SUCCESS: return fetchPortfolioSuccess(state, action);
         case actionTypes.FETCH_PORTFOLIO_FAIL: return fetchPortfolioFail(state, action);
+        case actionTypes.FETCH_PORT_REQUESTID_FROM_LOCAL_SUCCESS: return fetchRequestIdFromLocalSuccess(state, action);
         default: return state;
     }
 }
