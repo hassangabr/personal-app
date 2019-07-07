@@ -33,6 +33,10 @@ export function* authLogout (action) {
     yield call([localStorage, 'removeItem'], 'token');
     yield call([localStorage, 'removeItem'], 'expirationTime');
     yield call([localStorage, 'removeItem'], 'userId');
+    yield call([localStorage, 'removeItem'], 'resumeRequestId');
+    yield call([localStorage, 'removeItem'], 'skillsRequestId');
+    yield call([localStorage, 'removeItem'], 'portRequestId');
+    yield call([localStorage, 'removeItem'], 'userRequestId');
     yield put(actions.logoutSucceed());
 }
 
