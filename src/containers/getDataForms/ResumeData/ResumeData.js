@@ -112,7 +112,7 @@ class ResumeData extends Component {
     }
 
     componentDidMount () {
-        if (this.props.resumeRedirect !== '/home') {
+        if (this.props.resumeRedirect !== '/chooseTask') {
             this.props.onSetResumeRedirect();
         }
     }
@@ -276,7 +276,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onSubmitResume: (token, data) => dispatch(actions.submitResume(token, data)),
-        onSetResumeRedirect: () => dispatch(actions.setResumeRedirect('/home'))
+        onSetResumeRedirect: () => dispatch(actions.setResumeRedirect('/chooseTask'))
     }
 }
 

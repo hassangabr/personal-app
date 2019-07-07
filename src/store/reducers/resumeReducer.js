@@ -5,7 +5,7 @@ const initialState = {
     loading: false,
     error: null,
     requestId: null,
-    setResumeRedirect: '/home',
+    setResumeRedirect: '/chooseTask',
     resumeData: null
 }
 
