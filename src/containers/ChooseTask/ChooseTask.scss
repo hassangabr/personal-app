@@ -12,14 +12,15 @@ section.chooseTask {
             padding-bottom:12px;
         }
         .tasksButton {
-            background-color:rgb(216, 87, 13);
+            background-color:rgb(209, 21, 146);
             border-radius:0;
-            border-color:rgb(216, 87, 13);
+            border-color:rgb(209, 21, 146);
             width:100%;
-            text-transform: uppercase;
+            letter-spacing: 1px;
             font-size:16px;
+            padding: 6px 30px;
             &:hover {
-                color:rgb(216, 87, 13);
+                color:rgb(209, 21, 146);
                 background-color:#fff;
             }
         }
