@@ -44,6 +44,7 @@ const input = ( props ) => {
                                     className = {inputClasses.join(' ')}
                                     {...props.elementConfig}
                                     onChange = {props.file}
+                                    accept = "image/*"
                                 />
                                 <div className={UploadImage.join(' ')}>
                                     <FontAwesomeIcon icon={faCamera}/>
