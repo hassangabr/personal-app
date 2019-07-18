@@ -14,6 +14,10 @@ class ChooseTask extends Component {
             redirect = <Redirect to = '/home' />
         }
 
+        if (this.props.reachHome) {
+            redirect = <Redirect to = '/home' />
+        }
+
         return  (
         <section className="chooseTask">
             {redirect}
@@ -56,7 +60,8 @@ const mapStateToProps = state => {
         portRequestId: state.port.requestId !== null,
         resumeRequestId: state.resume.requestId !== null,
         skillsRequestId: state.skills.requestId !== null,
-        userRequestId: state.user.requestId !== null
+        userRequestId: state.user.requestId !== null,
+        reachHome: state.auth.reachHome
     }
 }
 
