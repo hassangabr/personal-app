@@ -72,9 +72,9 @@ class About extends Component {
 
         if (!isEmpty(this.props.data) && !this.props.loading) {
             userData = (
-                <Button classes = "direction">
-                    <NavLink to = "/data">Add your personal information</NavLink>
-                </Button>
+                <NavLink to = "/skillsData" className = "direction">
+                    Add your personal information
+                </NavLink>
             );
         }
 

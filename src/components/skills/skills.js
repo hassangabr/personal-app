@@ -27,9 +27,9 @@ class Skills extends Component {
 
         if (this.props.skillsData !== null && !this.props.loading && this.props.skillsData.length < 1) {
             skills = (
-                <Button classes = "direction">
-                    <NavLink to = "/skillsData">Add your Skills</NavLink>
-                </Button>
+                    <NavLink to = "/skillsData" className = "direction">
+                        Add your Skills
+                    </NavLink>
             );
         }
         
