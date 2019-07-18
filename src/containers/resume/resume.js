@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import * as actions from '../../store/actions/indexActions';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import { Container, Row } from 'reactstrap';
@@ -32,6 +33,14 @@ class Resume extends Component {
                     description = {resumeElements.description}
                  />
             ));
+        }
+
+        if (this.props.resumeData !== null && !this.props.loading && this.props.resumeData.length < 1) {
+            resumes = (
+                <NavLink to = "/resumeData" className = "direction">
+                    Add your career history
+                </NavLink>
+            );
         }
 
         return (

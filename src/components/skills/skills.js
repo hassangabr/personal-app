@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Spinner from '../UI/Spinner/Spinner';
-import Button from '../UI/Button/Button';
+// import Button from '../UI/Button/Button';
 import * as actions from '../../store/actions/indexActions';
 import Skill from './skill/skill';
 

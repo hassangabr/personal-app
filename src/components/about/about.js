@@ -8,7 +8,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faAt, faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
 import Spinner from '../UI/Spinner/Spinner';
-import Button from '../UI/Button/Button';
+// import Button from '../UI/Button/Button';
 library.add(faCalendarAlt, faAt, faPhoneVolume);
 
 class About extends Component {

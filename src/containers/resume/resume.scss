@@ -20,4 +20,26 @@ section.resume {
         margin-bottom:55px;
         line-height:1;
     }
+    a {
+        &.direction {
+            display: block;
+            width:200px;
+            padding:10px 0;
+            background-color:$main-color;
+            text-decoration:none;
+            text-align: center;
+            border-radius:2px;
+            color:#fff;
+            font-size:15px;
+            font-weight:bold;
+            margin-right:auto;
+            margin-left:auto;
+            border:2px solid $main-color;
+            transition: all 0.2s ease-out;
+            &:hover {
+                color:$main-color;
+                background-color: #fff;
+            }
+        }
+    }
 }

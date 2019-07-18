@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import PortfolioComponent from '../../components/portfolio/portfolioComponent';
 import * as actions from '../../store/actions/indexActions';
 import { Container, Row } from 'reactstrap';
@@ -28,6 +29,14 @@ class Portfolio extends Component {
                     link = {portElement.link}
                 />
             ))
+        }
+
+        if (this.props.portfolioData !== null && !this.props.loading && this.props.portfolioData.length < 1) {
+            Ports = (
+                <NavLink to = "/portfolioData" className = "direction">
+                    Add your works
+                </NavLink>
+            );
         }
 
         return (
