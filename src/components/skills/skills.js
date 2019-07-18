@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import Spinner from '../UI/Spinner/Spinner';
+import Button from '../UI/Button/Button';
 import * as actions from '../../store/actions/indexActions';
 import Skill from './skill/skill';
 
@@ -21,6 +23,14 @@ class Skills extends Component {
             skills = this.props.skillsData.map(skillElement => (
                 <Skill key = {skillElement.id} skill = {skillElement.skill} rate = {skillElement.rate + "%"}/>
             ))
+        }
+
+        if (this.props.skillsData !== null && !this.props.loading && this.props.skillsData.length < 1) {
+            skills = (
+                <Button classes = "direction">
+                    <NavLink to = "/skillsData">Add your Skills</NavLink>
+                </Button>
+            );
         }
         
         return (
