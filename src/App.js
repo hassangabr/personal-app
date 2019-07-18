@@ -48,8 +48,15 @@ class App extends Component {
         </Switch>
       );
     }
+
+    let style = [];
+
+    if (this.props.reachHome) {
+        style.push("fromHome");
+    }
+
     return (
-      <div>
+      <div className = {style.join("")}>
         <Layout>
             {routes}
         </Layout>
@@ -61,7 +68,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     token: state.auth.token !== null,
-    redirect: state.auth.authRedirectPath
+    redirect: state.auth.authRedirectPath,
+    reachHome: state.auth.reachHome
   }
 }
 

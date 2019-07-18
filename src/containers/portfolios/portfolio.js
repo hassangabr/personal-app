@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import PortfolioComponent from '../../components/portfolio/portfolioComponent';
 import * as actions from '../../store/actions/indexActions';
-import { Container, Row } from 'reactstrap';
+import { Row } from 'reactstrap';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import './portfolio.scss';
 
@@ -42,11 +42,11 @@ class Portfolio extends Component {
         return (
             <section className = "portfolio">
                 <h2 className = "text-center">My Works</h2>
-                <Container>
+                <div className = "cont">
                     <Row>
                         {Ports}
                     </Row>
-                </Container>
+                </div>
             </section>
         );
     }

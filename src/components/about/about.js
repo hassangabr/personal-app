@@ -16,7 +16,6 @@ class About extends Component {
         if (this.props.token !== null && this.props.userId !== null) {
             this.props.onFetch(this.props.token, this.props.userId);
         }
-        console.log(this.props.data);
     }
 
     render () {

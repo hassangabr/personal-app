@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import * as actions from '../../store/actions/indexActions';
 import Spinner from '../../components/UI/Spinner/Spinner';
-import { Container, Row } from 'reactstrap';
+import { Row } from 'reactstrap';
 import ResumeComponent from '../../components/resume/resumeComponent';
 import './resume.scss';
 
@@ -46,11 +46,11 @@ class Resume extends Component {
         return (
             <section className = "resume">
                 <h2 className = "text-center">My career history</h2>
-                <Container>
+                <div className = "cont">
                     <Row>
                         {resumes}
                     </Row>
-                </Container>
+                </div>
                 
             </section>
         );
