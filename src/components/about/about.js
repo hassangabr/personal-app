@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import * as actions from '../../store/actions/indexActions';
 import { connect } from 'react-redux';
 import Aux from '../../hoc/AuxC'
@@ -7,6 +8,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faAt, faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
 import Spinner from '../UI/Spinner/Spinner';
+import Button from '../UI/Button/Button';
 library.add(faCalendarAlt, faAt, faPhoneVolume);
 
 class About extends Component {
@@ -14,7 +16,7 @@ class About extends Component {
         if (this.props.token !== null && this.props.userId !== null) {
             this.props.onFetch(this.props.token, this.props.userId);
         }
-        // this.props.onFetch(this.props.token, this.props.userId);
+        console.log(this.props.data);
     }
 
     render () {
@@ -51,8 +53,28 @@ class About extends Component {
                                 <p><span>Phone:</span> {this.props.data.phone}</p>
                             </li>
                         </ul>
+                        {/* <Button>Edit your personal information</Button>
+                        <NavLink to = "/data">Edit your personal information</NavLink> */}
                     </Col>
                 </Aux>
+            );
+        }
+
+        const isEmpty = (object) => {
+            for (let key in object) {
+                if (object.hasOwnProperty(key)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        if (!isEmpty(this.props.data) && !this.props.loading) {
+            userData = (
+                <Button classes = "direction">
+                    <NavLink to = "/data">Add your personal information</NavLink>
+                </Button>
             );
         }
 

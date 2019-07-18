@@ -21,7 +21,7 @@ class Home extends Component {
                     <Col lg='12'>
                         <Skills />
                     </Col>
-                </Row>
+                </Row>  
             </section>
         );
     }
