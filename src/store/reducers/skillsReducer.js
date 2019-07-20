@@ -64,6 +64,12 @@ const fetchSkillsRequestIdFromLocalSuccess = (state, action) => {
     })
 }
 
+const reachHome = (state, action) => {
+    return updateObject(state, {
+        requestId: null
+    });
+}
+
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.SUBMIT_SKILLS_START: return skillsSubmitStart(state, action);
@@ -74,6 +80,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.FETCH_SKILLS_SUCCESS: return fetchSkillsSuccess(state, action);
         case actionTypes.FETCH_SKILLS_FAIL: return fetchSkillsFail(state, action);
         case actionTypes.FETCH_SKILLS_REQUEST_ID_FROM_LOCAL_SUCCESS: return fetchSkillsRequestIdFromLocalSuccess(state, action);
+        case actionTypes.REACH_HOME: return reachHome(state, action);
         default: return state;
     }
 }

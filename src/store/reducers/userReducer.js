@@ -65,6 +65,12 @@ const fetchUserRequestIdSuccess = (state, action) => {
     })
 }
 
+const reachHome = (state, action) => {
+    return updateObject(state, {
+        requestId: null
+    });
+}
+
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.SUBMIT_DATA_START: return submitDataStart(state, action);
@@ -75,6 +81,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.FETCH_USER_SUCCESS: return fetchDataSuccess(state, action);
         case actionTypes.FETCH_USER_FAIL: return fetchDataFail(state, action);
         case actionTypes.FETCH_USER_REQUEST_ID_SUCCESS: return fetchUserRequestIdSuccess(state, action);
+        case actionTypes.REACH_HOME: return reachHome(state, action);
         default: return state;
     }
 }

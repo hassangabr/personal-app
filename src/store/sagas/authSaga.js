@@ -40,6 +40,13 @@ export function* authLogout (action) {
     yield put(actions.logoutSucceed());
 }
 
+export function* reachHome(action) {
+    yield call([localStorage, 'removeItem'], 'resumeRequestId');
+    yield call([localStorage, 'removeItem'], 'skillsRequestId');
+    yield call([localStorage, 'removeItem'], 'portRequestId');
+    yield call([localStorage, 'removeItem'], 'userRequestId');
+}
+
 export function* authCheckTimeOut (action) {
     yield delay(action.expirationTime * 1000);
     yield put(actions.logout());

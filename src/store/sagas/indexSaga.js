@@ -1,6 +1,6 @@
 import { takeEvery, all } from 'redux-saga/effects';
 import * as actionTypes from '../actions/actionTypes';
-import { authSaga, authLogout, authCheckTimeOut, authCheckState } from './authSaga';
+import { authSaga, authLogout, authCheckTimeOut, authCheckState, reachHome } from './authSaga';
 import { submitData, fetchUserSaga, checkUserRequestIdState } from './userSaga';
 import { submitSkillsSaga, fetchSkillsSaga, checkSkillsRequestIdState } from './skillsSaga';
 import { submitPortfolio, fetchPortfolio, checkPortfolioRequestIdState } from './portfolioSaga';
@@ -12,6 +12,7 @@ export function* watchAuth () {
         takeEvery(actionTypes.AUTH_INITIATE_LOGOUT, authLogout),
         takeEvery(actionTypes.AUTH_CHECK_TIMEOUT, authCheckTimeOut),
         takeEvery(actionTypes.AUTH_CHECK_STATE, authCheckState),
+        takeEvery(actionTypes.REACH_HOME, reachHome),
     ]);
 }
 
