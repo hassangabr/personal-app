@@ -20,6 +20,9 @@ class Portfolio extends Component {
         if (this.props.loading) {
             Ports = <Spinner />
         }
+
+        let resetButton = null;
+
         if (this.props.portfolioData !== null && !this.props.loading) {
             Ports = this.props.portfolioData.map(portElement => (
                 <PortfolioComponent 
@@ -28,7 +31,11 @@ class Portfolio extends Component {
                     img = {portElement.thumbnail}
                     link = {portElement.link}
                 />
-            ))
+            ));
+            resetButton = <NavLink to = "/portfolioData" className = "direction" style={{
+                "margin-top": "35px",
+                "margin-bottom": "0"
+            }}>Reset your portfolio</NavLink>
         }
 
         if (this.props.portfolioData !== null && !this.props.loading && this.props.portfolioData.length < 1) {
@@ -46,6 +53,7 @@ class Portfolio extends Component {
                     <Row>
                         {Ports}
                     </Row>
+                    {resetButton}
                 </div>
             </section>
         );

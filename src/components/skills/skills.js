@@ -18,11 +18,17 @@ class Skills extends Component {
         if (this.props.loading) {
             skills = <Spinner />;
         }
-       
+
+        let resetButton = null;
+        
         if (this.props.skillsData !== null && !this.props.loading) {
             skills = this.props.skillsData.map(skillElement => (
                 <Skill key = {skillElement.id} skill = {skillElement.skill} rate = {skillElement.rate + "%"}/>
-            ))
+            ));
+            resetButton = <NavLink to = "/skillsData" className = "direction" style={{
+                "margin-top": "35px",
+                "margin-bottom": "0"
+            }}>Reset your skills</NavLink>
         }
 
         if (this.props.skillsData !== null && !this.props.loading && this.props.skillsData.length < 1) {
@@ -37,6 +43,7 @@ class Skills extends Component {
             <div className="skills">
                 <h3>Skills</h3>
                 {skills}
+                {resetButton}
             </div>
         );
     }

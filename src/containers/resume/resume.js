@@ -21,6 +21,8 @@ class Resume extends Component {
             resumes = <Spinner />
         }
 
+        let resetButton = null;
+
         if (this.props.resumeData !== null && !this.props.loading) {
             resumes = this.props.resumeData.map(resumeElements => (
                 <ResumeComponent
@@ -33,6 +35,10 @@ class Resume extends Component {
                     description = {resumeElements.description}
                  />
             ));
+            resetButton = <NavLink to = "/resumeData" className = "direction" style={{
+                "margin-top": "35px",
+                "margin-bottom": "0"
+            }}>Reset your resumes</NavLink>
         }
 
         if (this.props.resumeData !== null && !this.props.loading && this.props.resumeData.length < 1) {
@@ -50,6 +56,7 @@ class Resume extends Component {
                     <Row>
                         {resumes}
                     </Row>
+                    {resetButton}
                 </div>
                 
             </section>

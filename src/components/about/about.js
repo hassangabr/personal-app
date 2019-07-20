@@ -52,8 +52,7 @@ class About extends Component {
                                 <p><span>Phone:</span> {this.props.data.phone}</p>
                             </li>
                         </ul>
-                        {/* <Button>Edit your personal information</Button>
-                        <NavLink to = "/data">Edit your personal information</NavLink> */}
+                        <NavLink to = "/data" className = "direction" style = {{"margin-bottom": "0px"}}>Reset your personal information</NavLink>
                     </Col>
                 </Aux>
             );
