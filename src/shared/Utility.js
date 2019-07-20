@@ -28,5 +28,8 @@ export const checkValidity = (value, rule) => {
         const pattern = /^\d+$/;
         isValid = pattern.test(value) && isValid
     }
+    if (rule.maxNum) {
+        isValid = value <= rule.maxNum && isValid
+    }
     return isValid;
 }

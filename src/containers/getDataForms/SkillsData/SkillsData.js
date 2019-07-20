@@ -36,13 +36,14 @@ class SkillsData extends Component {
                 elementType: 'input',
                 config: {
                     type: 'text',
-                    placeholder: 'Type this skill rate'
+                    placeholder: 'Type this skill rate from 0 to 100'
                 },
                 value: '',
                 validation: {
                     required: true,
                     maxLength: 3,
-                    isNumeric: true
+                    isNumeric: true,
+                    maxNum: 100
                 },
                 valid: false,
                 touched: false,
