@@ -23,7 +23,7 @@ class Resume extends Component {
 
         let resetButton = null;
 
-        if (this.props.resumeData !== null && !this.props.loading) {
+        if (this.props.resumeData !== null && !this.props.loading && this.props.resumeData.length >= 1) {
             resumes = this.props.resumeData.map(resumeElements => (
                 <ResumeComponent
                     key = {resumeElements.id}

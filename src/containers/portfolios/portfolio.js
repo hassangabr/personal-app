@@ -23,7 +23,7 @@ class Portfolio extends Component {
 
         let resetButton = null;
 
-        if (this.props.portfolioData !== null && !this.props.loading) {
+        if (this.props.portfolioData !== null && !this.props.loading && this.props.portfolioData.length >= 1) {
             Ports = this.props.portfolioData.map(portElement => (
                 <PortfolioComponent 
                     key = {portElement.id}

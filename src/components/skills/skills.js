@@ -20,7 +20,7 @@ class Skills extends Component {
 
         let resetButton = null;
         
-        if (this.props.skillsData !== null && !this.props.loading) {
+        if (this.props.skillsData !== null && !this.props.loading && this.props.skillsData.length >= 1) {
             skills = this.props.skillsData.map(skillElement => (
                 <Skill key = {skillElement.id} skill = {skillElement.skill} rate = {skillElement.rate + "%"}/>
             ));
