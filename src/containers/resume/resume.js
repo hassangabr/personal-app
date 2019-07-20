@@ -36,8 +36,8 @@ class Resume extends Component {
                  />
             ));
             resetButton = <NavLink to = "/resumeData" className = "direction" style={{
-                "margin-top": "35px",
-                "margin-bottom": "0"
+                "marginTop": "35px",
+                "marginBottom": "0"
             }}>Reset your resumes</NavLink>
         }
 

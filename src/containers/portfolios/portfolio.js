@@ -33,8 +33,8 @@ class Portfolio extends Component {
                 />
             ));
             resetButton = <NavLink to = "/portfolioData" className = "direction" style={{
-                "margin-top": "35px",
-                "margin-bottom": "0"
+                "marginTop": "35px",
+                "marginBottom": "0"
             }}>Reset your portfolio</NavLink>
         }
 

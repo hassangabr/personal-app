@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Spinner from '../UI/Spinner/Spinner';
-// import Button from '../UI/Button/Button';
 import * as actions from '../../store/actions/indexActions';
 import Skill from './skill/skill';
 
@@ -26,8 +25,8 @@ class Skills extends Component {
                 <Skill key = {skillElement.id} skill = {skillElement.skill} rate = {skillElement.rate + "%"}/>
             ));
             resetButton = <NavLink to = "/skillsData" className = "direction" style={{
-                "margin-top": "35px",
-                "margin-bottom": "0"
+                "marginTop": "35px",
+                "marginBottom": "0"
             }}>Reset your skills</NavLink>
         }
 
